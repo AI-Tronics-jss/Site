@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Display</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="server.js"></script>
+</head>
+
+<body class="dark-mode">
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <h2>AQI Dashboard</h2>
+        <div class="top-buttons">
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4311076/" target="_blank" class="top-button">Check More
+                AQI Data</a>
+            <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Left AQI Display Section -->
+        <div class="aqi-display">
+            <h1>Air Quality Index (AQI)</h1>
+            <div class="aqi-box">
+                <p>AQI (Regression): <span id="aqi-regression">310</span></p>
+                <p>AQI (Generation): <span id="aqi-generation">410</span></p>
+                <p id="aqi-status">Poor</p>
+            </div>
+        </div>
+
+
+
+        <!-- Right Gauge Meter -->
+        <div class="gauge-container">
+            <div class="gauge">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="#ddd" stroke-width="8" fill="none" />
+                    <circle id="gauge-arc" cx="50" cy="50" r="40" stroke="#FF0000" stroke-width="8" fill="none"
+                        stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round"
+                        transform="rotate(-90,50,50)" />
+                </svg>
+                <div class="gauge-value" id="aqi-value">200</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bottom Left Box with Icon -->
+    <div class="bottom-left-box">
+        <div class="bottom-left-text">Team: AI Tronics <br>Gurkirat Singh(1JS23CI027) <br>Rohan Goswami(1JS23EI045)
+            <br>Raj Kumar(1JS23CI069) <BR>Yasharth Tripathi(1JS23CS189)</BR></div>
+        <img src="resources/icon.jpg" alt="Info Icon">
+    </div>
+
+
+    <!-- Bottom Bar -->
+    <div class="bottom-bar">
+        <span class="scroll-text">AI-Tronics JSS🌿</span>
+        <span class="scroll-text">AI-Tronics JSS🌿</span>
+    </div>
+
+</body>
+
+</html>

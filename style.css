@@ -1,0 +1,325 @@
+/* General Page Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Light Mode */
+body.light-mode {
+    background: linear-gradient(135deg, #f4f4f4, #d3e0ea);
+    color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+}
+
+/* Top Navigation Bar */
+.top-bar {
+    width: 100%;
+    max-width: 1200px;
+    background: #0f3460;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.top-bar h2 {
+    font-size: 22px;
+    margin: 0;
+    flex: 1;
+    text-align: center;
+}
+
+.top-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.top-button {
+    background: #e94560;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.top-button:hover {
+    background: #d63447;
+}
+
+/* Dark Mode / Light Mode Button */
+.mode-toggle {
+    background: #f5f5f5;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+body.dark-mode .mode-toggle {
+    background: #444;
+    color: white;
+}
+
+.mode-toggle:hover {
+    background: #bbb;
+}
+
+/* Main Content */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 100px;
+    padding: 30px;
+    border-radius: 10px;
+    transition: background 0.5s ease-in-out;
+    box-sizing: border-box;
+}
+
+/* Light Mode Box */
+body.light-mode .main-container {
+    background: linear-gradient(cyan,rgb(255, 255, 255));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Box */
+body.dark-mode .main-container {
+    background: linear-gradient(cyan, black);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Left AQI Display */
+.aqi-display {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    min-width: 300px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.aqi-box {
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Light Mode AQI Box */
+body.light-mode .aqi-box {
+    background: #e0e0e0;
+}
+
+/* Dark Mode AQI Box */
+body.dark-mode .aqi-box {
+    background: #222;
+}
+
+/* Right Gauge Meter */
+.gauge-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    margin-top: 20px;
+}
+
+.gauge {
+    position: relative;
+    width: 180px;
+    height: 180px;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+#gauge-arc {
+    transition: stroke-dashoffset 1s ease-in-out, stroke 1s ease-in-out;
+}
+
+.gauge-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aqi-display,
+    .gauge-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .top-buttons {
+        flex-direction: row;
+    }
+}
+
+
+/* Bottom Bar */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0f3460;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Smooth Scrolling Text */
+.bottom-bar .scroll-container {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.bottom-bar .scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: smoothScroll 15s linear infinite;
+}
+
+/* Smooth Scrolling Animation */
+@keyframes smoothScroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Light Mode Bottom Bar */
+body.light-mode .bottom-bar {
+    background: #d3e0ea;
+    color: black;
+}
+
+/* Bottom Left Box */
+.bottom-left-box {
+    position: fixed;
+    bottom: 50px; /* Above the bottom bar */
+    left: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    transition: background 0.3s ease-in-out;
+}
+
+/* Light Mode Styling */
+body.light-mode .bottom-left-box {
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* Icon Styling */
+.bottom-left-box img {
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+/* Text Inside Box */
+.bottom-left-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Light Mode Text Color */
+body.light-mode .bottom-left-text {
+    color: black;
+}
+
+/* AQI Container (No Change to Class Name) */
+.aqi-container {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    color: white;
+}
+
+/* Light Mode Support */
+body.light-mode .aqi-container {
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+/* Weather Info Inside AQI Box */
+.weather-info {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Weather Icon */
+.weather-icon {
+    width: 40px;
+    height: 40px;
+}a
+
+/* Weather Text */
+.weather-text {
+    font-size: 16px;
+    font-weight: bold;
+}
